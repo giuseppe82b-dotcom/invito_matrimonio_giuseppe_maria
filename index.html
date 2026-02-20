@@ -6,6 +6,7 @@
     <title>Giuseppe e Maria - Wedding Day</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
@@ -417,13 +418,13 @@
 
     <div id="main-website">
         
-        <header>
+        <header data-aos="fade-down" data-aos-duration="1000">
             <div class="subtitle">Siete invitati al matrimonio di</div>
             <h1 class="main-title">Giuseppe & Maria</h1>
             <div class="subtitle" style="margin-top: 20px; color: #000;">Lunedì, 24 Agosto 2026</div>
         </header>
 
-        <div class="welcome-section">
+        <div class="welcome-section" data-aos="fade-up">
             <p class="welcome-text">
                 Benvenuti! 
                 Siamo davvero felici di poter celebrare questo momento unico insieme a voi, cari amici e parenti.
@@ -431,13 +432,13 @@
             </p>
         </div>
 
-        <div class="photo-container">
+        <div class="photo-container" data-aos="zoom-in" data-aos-duration="1200">
             <div class="photo-frame">
                 <img src="foto.jpg" alt="Giuseppe e Maria" onerror="this.style.display='none'; this.parentElement.innerHTML='<p style=\'text-align:center; padding:20px;\'>Inserire file foto.jpg</p>'">
             </div>
         </div>
 
-        <section class="countdown-section">
+        <section class="countdown-section" data-aos="fade-up">
             <div style="font-family:'Playfair Display'; font-style:italic;">Conto alla rovescia</div>
             <div class="timer-container" id="countdown">
                 <div class="time-box"><span class="time-number" id="days">00</span><span class="time-label">Giorni</span></div>
@@ -450,9 +451,9 @@
         <div class="section-divider"><i class="fas fa-heart"></i></div>
 
         <section>
-            <h2 class="section-title">Timeline dell'evento</h2>
+            <h2 class="section-title" data-aos="fade-up">Timeline dell'evento</h2>
             <div class="timeline">
-                <div class="event">
+                <div class="event" data-aos="fade-left">
                     <div class="event-time">16:00</div>
                     <div class="event-title">La Cerimonia</div>
                     <div class="event-desc">
@@ -465,7 +466,7 @@
                     </div>
                 </div>
                 
-                <div class="event">
+                <div class="event" data-aos="fade-left">
                     <div class="event-time">18:30</div>
                     <div class="event-title">Il Ricevimento</div>
                     <div class="event-desc">
@@ -483,10 +484,10 @@
         <div class="section-divider"><i class="fas fa-gem"></i></div>
 
         <section class="details-section">
-            <h2 class="section-title" style="margin-top: 0;">Dettagli</h2>
+            <h2 class="section-title" style="margin-top: 0;" data-aos="fade-up">Dettagli</h2>
             
             <div class="details-container">
-                <div class="detail-col">
+                <div class="detail-col" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="detail-title">Pernottamento</h3>
                     <img src="hotel.jpg" alt="Hotel" class="detail-img" onerror="this.style.display='none'">
                     <p class="detail-text">
@@ -497,7 +498,7 @@
                     <a href="#" class="detail-link">Link all'hotel</a>
                 </div>
 
-                <div class="detail-col">
+                <div class="detail-col" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="detail-title">Come Arrivare</h3>
                     <img src="trasporti.jpg" alt="Trasporti" class="detail-img" onerror="this.style.display='none'">
                     <p class="detail-text">
@@ -506,7 +507,7 @@
                     </p>
                 </div>
 
-                <div class="detail-col">
+                <div class="detail-col" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="detail-title">Spostamenti</h3>
                     <img src="spostamenti.jpg" alt="Navetta" class="detail-img" onerror="this.style.display='none'">
                     <p class="detail-text">
@@ -519,10 +520,10 @@
         <div class="section-divider"><i class="fas fa-bus"></i></div>
 
         <section class="transport-section">
-            <h2 class="section-title">Per chi viene da lontano</h2>
+            <h2 class="section-title" data-aos="fade-up">Per chi viene da lontano</h2>
             
             <div class="transport-container">
-                <div class="transport-step">
+                <div class="transport-step" data-aos="fade-right">
                     <div class="t-icon-box">
                         <i class="fas fa-bed"></i>
                     </div>
@@ -531,7 +532,7 @@
                     <p class="t-desc">Gli ospiti potranno prendere possesso della camera presso l'Hotel da definire.</p>
                 </div>
 
-                <div class="transport-step">
+                <div class="transport-step" data-aos="fade-right">
                     <div class="t-icon-box">
                         <i class="fas fa-bus-alt"></i>
                     </div>
@@ -540,7 +541,7 @@
                     <p class="t-desc">Il pullman passerà dall'hotel per portare gli ospiti alla Basilica.</p>
                 </div>
 
-                <div class="transport-step">
+                <div class="transport-step" data-aos="fade-right">
                     <div class="t-icon-box">
                         <i class="fas fa-exchange-alt"></i>
                     </div>
@@ -549,7 +550,7 @@
                     <p class="t-desc">Il pullman attenderà nel parcheggio della Basilica per il trasferimento al ristorante.</p>
                 </div>
 
-                <div class="transport-step">
+                <div class="transport-step" data-aos="fade-right">
                     <div class="t-icon-box">
                         <i class="fas fa-moon"></i>
                     </div>
@@ -562,7 +563,7 @@
 
         <div class="section-divider"><i class="fas fa-palette"></i></div>
 
-        <section style="padding: 40px 20px; max-width: 800px; margin: 0 auto;">
+        <section style="padding: 40px 20px; max-width: 800px; margin: 0 auto;" data-aos="zoom-in">
             <div class="bg-white/60 backdrop-blur-sm p-5 md:p-6 rounded-lg shadow-sm border border-white/50" style="background-color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.5); border-radius: 8px; padding: 25px;">
                 <h3 class="font-sans-modern text-lg uppercase tracking-widest text-gray-500 mb-4 text-center" style="text-align: center; color: #999; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px;">
                     Palette Colori Evento <br> 
@@ -587,14 +588,14 @@
         <div class="section-divider"><i class="fas fa-camera-retro"></i></div>
 
         <section class="memories-section">
-            <h2 class="section-title">Ricordi</h2>
-            <div class="memory-box">
+            <h2 class="section-title" data-aos="fade-up">Ricordi</h2>
+            <div class="memory-box" data-aos="flip-left">
                 <div class="memory-icon"><i class="fas fa-cloud-upload-alt"></i></div>
                 <h3 class="font-sans-modern" style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem;"></h3>
                 <p class="detail-text" style="margin: 15px 0;">Aiutateci a catturare ogni istante. Caricate qui le foto e i video scattati durante la giornata!</p>
                 
                 <div class="qr-placeholder">
-                    <img src="qrcode.png" alt="QR Code per caricamento foto" onerror="this.parentElement.innerHTML='<i class=\"fas fa-qrcode fa-5x\" style=\"color:#eee\"></i><br><small></small>
+                    <img src="qrcode.png" alt="QR Code per caricamento foto" onerror="this.parentElement.innerHTML='<i class=\"fas fa-qrcode fa-5x\" style=\"color:#eee\"></i><br><small></small>">
                 </div>
                 
                 <p class="font-sans-modern" style="font-size: 0.8rem; color: #849caf;">Inquadra il QR Code o clicca il tasto sotto</p>
@@ -605,14 +606,14 @@
         <div class="section-divider"><i class="fas fa-envelope-open-text"></i></div>
 
         <section class="contact-section">
-            <h2 class="section-title">R.S.V.P.</h2>
-            <p style="margin-bottom: 30px; color: #666;">
+            <h2 class="section-title" data-aos="fade-up">R.S.V.P.</h2>
+            <p style="margin-bottom: 30px; color: #666;" data-aos="fade-up">
                 Per agevolarci nell'organizzazione degli alloggi <br>
                 Vi chiediamo cortesemente di confermarci la Vs presenza <br> <b>quanto prima</b>.
             </p>
             
             <div class="contact-container">
-                <div class="contact-card">
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="contact-name">Giuseppe</h3>
                     <div class="contact-number">320 1454588</div>
                     <div class="contact-actions">
@@ -620,7 +621,7 @@
                         <a href="https://wa.me/393201454588" target="_blank" class="btn-action btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     </div>
                 </div>
-                <div class="contact-card">
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="contact-name">Maria</h3>
                     <div class="contact-number">347 6849877</div>
                     <div class="contact-actions">
@@ -634,12 +635,12 @@
         <div class="section-divider"><i class="fas fa-gift"></i></div>
 
         <section class="gift-section">
-            <h2 class="section-title"></h2>
-            <div class="honeymoon-text">
+            <h2 class="section-title" data-aos="fade-up"></h2>
+            <div class="honeymoon-text" data-aos="fade-up">
                 <p>Il regalo più bello per noi sarà la vostra presenza.</p>
                 <p>Ma se desiderate <strong>farci un pensiero</strong> <br></p>
             </div>
-            <div class="iban-card">
+            <div class="iban-card" data-aos="zoom-in">
                 <i class="fas fa-gift" style="font-size: 2rem; color: #f1b7a9; margin-bottom: 10px;"></i>
                 <div style="font-weight: bold; margin-bottom: 5px;">IBAN</div>
                 <div class="iban-number">da definire</div>
@@ -650,10 +651,10 @@
         <div class="section-divider"><i class="fas fa-star"></i></div>
 
         <section class="curiosity-section">
-            <h2 class="section-title">Curiosità</h2>
+            <h2 class="section-title" data-aos="fade-up">Curiosità</h2>
             <p style="color: #666; margin-bottom: 20px;">La nostra storia in pochi scatti</p>
             
-            <div class="carousel-wrapper">
+            <div class="carousel-wrapper" data-aos="fade-up">
                 <div class="carousel-item">
                     <img src="como.png" alt="Momento 1" class="carousel-img" onerror="this.src='https://via.placeholder.com/300x200?text=Il+Primo+Incontro'">
                     <div class="carousel-caption"><b>Il Lago di Como</b> Tutto è iniziato qui. La magia del lago ha fatto da sfondo ai nostri primi sguardi.</div>
@@ -692,6 +693,7 @@
 
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         const envelopeBtn = document.getElementById('envelopeBtn');
         const introContainer = document.getElementById('intro-container');
@@ -701,6 +703,14 @@
         const audioControl = document.getElementById('audio-control');
         const audioIcon = document.getElementById('audio-icon');
         let opened = false;
+
+        // Inizializzazione animazioni (AOS)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
 
         // Funzione per attivare/disattivare audio
         function toggleAudio() {
@@ -728,7 +738,12 @@
                     audioControl.style.display = 'flex'; // Mostra il pulsante audio
                     body.style.overflowY = 'auto'; 
                     body.style.backgroundColor = 'white';
-                    setTimeout(() => introContainer.remove(), 1000);
+                    
+                    // Rinfresca AOS dopo che il sito diventa visibile
+                    setTimeout(() => {
+                        AOS.refresh();
+                        introContainer.remove();
+                    }, 100);
                 }, 2000);
             }
         });
@@ -755,4 +770,3 @@
     </script>
 </body>
 </html>
-
