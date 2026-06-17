@@ -608,8 +608,9 @@
                 </div>
                 
                 <p class="font-sans-modern" style="font-size: 0.8rem; color: #849caf;">Inquadra il QR Code o clicca il tasto sotto</p>
-                <a href="https://drive.google.com/drive/folders/185TVe5fdg01paP2KogSySEEdAg9CaI1X?usp=sharing" target="_blank" class="upload-btn">CARICA FOTO</a>
-            </div>
+               <input type="file" id="file-uploader" multiple accept="image/*,video/*" style="display: none;">
+<button id="custom-upload-btn" class="upload-btn" style="border: none; cursor: pointer; font-family: inherit; font-size: 1rem;">SELEZIONA FOTO</button>
+<p id="upload-status" style="font-size: 0.9rem; color: var(--whatsapp); margin-top: 15px; font-weight: bold; display: none;"></p>
         </section>
 
         <div class="section-divider"><i class="fas fa-envelope-open-text"></i></div>
@@ -781,6 +782,65 @@
                 document.getElementById("countdown").innerHTML = "Viva gli sposi!";
             }
         }, 1000);
+        const fileInput = document.getElementById('file-uploader');
+const customUploadBtn = document.getElementById('custom-upload-btn');
+const uploadStatus = document.getElementById('upload-status');
+
+// SOSTITUISCI CON L'URL GENERATO DAL DEPLOYMENT DI APPS SCRIPT
+const webAppUrl = "https://script.google.com/macros/s/AKfycbxd5yNbJ0rjjLUfLEFLL203VvUDjyoqnBdaw-IyOF8LfkkFDONgyTXcM7anPNMg_Vh7/exec";
+
+customUploadBtn.addEventListener('click', () => {
+    fileInput.click();
+});
+
+fileInput.addEventListener('change', async (event) => {
+    const files = event.target.files;
+    if (files.length === 0) return;
+
+    customUploadBtn.textContent = "CARICAMENTO IN CORSO...";
+    customUploadBtn.style.opacity = "0.7";
+    customUploadBtn.style.pointerEvents = "none";
+    uploadStatus.style.display = "none";
+    
+    let successCount = 0;
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        
+        await new Promise((resolve) => {
+            reader.onload = async (e) => {
+                const base64Data = e.target.result.split(',')[1];
+                
+                const formData = new URLSearchParams();
+                formData.append('fileName', file.name);
+                formData.append('mimeType', file.type);
+                formData.append('fileData', base64Data);
+
+                try {
+                    const response = await fetch(webAppUrl, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+                    if(result.status === "success") successCount++;
+                } catch (error) {
+                    console.error("Errore durante l'invio:", file.name);
+                }
+                resolve();
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    customUploadBtn.textContent = "CARICA ALTRE FOTO";
+    customUploadBtn.style.opacity = "1";
+    customUploadBtn.style.pointerEvents = "all";
+    fileInput.value = ""; 
+    
+    uploadStatus.textContent = successCount + " file caricati con successo! Grazie.";
+    uploadStatus.style.display = "block";
+});
     </script>
 </body>
 </html>
