@@ -598,19 +598,20 @@
 
         <section class="memories-section">
             <h2 class="section-title" data-aos="fade-up">Ricordi</h2>
-            <div class="memory-box" data-aos="flip-left">
-                <div class="memory-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                <h3 class="font-sans-modern" style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem;"></h3>
-                <p class="detail-text" style="margin: 15px 0;">Aiutateci a catturare ogni istante. Caricate qui le foto e i video scattati durante la giornata!</p>
-                
-                <div class="qr-placeholder">
-                    <img src="qrcode.png" alt="QR Code per caricamento foto" onerror="this.parentElement.innerHTML='<i class=\"fas fa-qrcode fa-5x\" style=\"color:#eee\"></i><br><small></small>">
-                </div>
-                
-                <p class="font-sans-modern" style="font-size: 0.8rem; color: #849caf;">Inquadra il QR Code o clicca il tasto sotto</p>
-               <input type="file" id="file-uploader" multiple accept="image/*,video/*" style="display: none;">
-<button id="custom-upload-btn" class="upload-btn" style="border: none; cursor: pointer; font-family: inherit; font-size: 1rem;">SELEZIONA FOTO</button>
-<p id="upload-status" style="font-size: 0.9rem; color: var(--whatsapp); margin-top: 15px; font-weight: bold; display: none;"></p>
+           <div class="memory-box" data-aos="flip-left">
+    <div class="memory-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+    <h3 class="font-sans-modern" style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem;"></h3>
+    <p class="detail-text" style="margin: 15px 0;">Aiutateci a catturare ogni istante. Caricate qui le foto e i video scattati durante la giornata!</p>
+
+    <div id="drive-gallery" class="carousel-wrapper" style="margin-bottom: 25px; display: none; min-height: 150px; align-items: center; justify-content: center;">
+        <p id="gallery-loading" style="font-size: 0.9rem; color: var(--text-light); font-style: italic;">Caricamento dei ricordi in corso...</p>
+    </div>
+
+    <p class="font-sans-modern" style="font-size: 0.8rem; color: #849caf;">Clicca il tasto sotto per aggiungere le tue foto</p>
+    <input type="file" id="file-uploader" multiple accept="image/*,video/*" style="display: none;">
+    <button id="custom-upload-btn" class="upload-btn" style="border: none; cursor: pointer; font-family: inherit; font-size: 1rem;">SELEZIONA FOTO</button>
+    <p id="upload-status" style="font-size: 0.9rem; color: var(--whatsapp); margin-top: 15px; font-weight: bold; display: none;"></p>
+</div>
         </section>
 
         <div class="section-divider"><i class="fas fa-envelope-open-text"></i></div>
@@ -841,6 +842,42 @@ fileInput.addEventListener('change', async (event) => {
     uploadStatus.textContent = successCount + " file caricati con successo! Grazie.";
     uploadStatus.style.display = "block";
 });
+        // Incolla questo codice in fondo al tuo tag <script>, prima della chiusura generale
+
+async function loadDriveGallery() {
+    const galleryContainer = document.getElementById('drive-gallery');
+    const loadingText = document.getElementById('gallery-loading');
+    
+    try {
+        const response = await fetch(webAppUrl); 
+        const result = await response.json();
+        
+        if (result.status === "success" && result.images.length > 0) {
+            galleryContainer.style.display = "flex";
+            if (loadingText) loadingText.remove();
+            
+            result.images.forEach(img => {
+                const item = document.createElement('div');
+                item.className = 'carousel-item';
+                
+                item.innerHTML = `
+                    <img src="${img.url}" alt="${img.name}" class="carousel-img">
+                    <div class="carousel-caption">Un momento speciale condiviso</div>
+                `;
+                galleryContainer.appendChild(item);
+            });
+        } else {
+            if (loadingText) loadingText.textContent = "Nessuna foto ancora caricata. Condividi il primo ricordo!";
+            galleryContainer.style.display = "block";
+        }
+    } catch (error) {
+        console.error("Errore nel caricamento della galleria:", error);
+        if (loadingText) loadingText.textContent = "Galleria temporaneamente non disponibile.";
+        galleryContainer.style.display = "block";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadDriveGallery);
     </script>
 </body>
 </html>
