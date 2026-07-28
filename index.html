@@ -698,8 +698,14 @@
             <div class="iban-card" data-aos="zoom-in">
                 <i class="fas fa-gift" style="font-size: 2rem; color: #f1b7a9; margin-bottom: 10px;"></i>
                 <div style="font-weight: bold; margin-bottom: 5px;">IBAN</div>
-                <div class="iban-number">IT47N0366901600346916231442</div>
-                <small>Intestato a Giuseppe Brunetti</small>
+                <div class="iban-number" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    IT47N0366901600346916231442
+                    <i class="fas fa-copy" style="cursor: pointer; color: #849caf; font-size: 1.2rem;" onclick="copyToClipboard('IT47N0366901600346916231442')" title="Copia IBAN"></i>
+                </div>
+                <small style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    Intestato a Giuseppe Brunetti
+                    <i class="fas fa-copy" style="cursor: pointer; color: #849caf; font-size: 1rem;" onclick="copyToClipboard('Giuseppe Brunetti')" title="Copia Intestatario"></i>
+                </small>
             </div>
         </section>
 
@@ -924,6 +930,15 @@ async function loadDriveGallery() {
         if (loadingText) loadingText.textContent = "Galleria temporaneamente non disponibile.";
         galleryContainer.style.display = "block";
     }
+}
+
+// Funzione per copiare il testo negli appunti
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        alert("Copiato: " + text);
+    }, function(err) {
+        console.error("Errore nella copia: ", err);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', loadDriveGallery);
