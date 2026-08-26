@@ -3,10 +3,6 @@
 <head>
     <meta name="color-scheme" content="light"> 
     
-    
-    
-    
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giuseppe e Maria - Wedding Day</title>
@@ -598,33 +594,51 @@
 
         <div class="section-divider"><i class="fas fa-camera-retro"></i></div>
 
+        <!-- SEZIONE RICORDI -->
         <section class="memories-section">
             <h2 class="section-title" data-aos="fade-up">Ricordi</h2>
-        <div class="memory-box" data-aos="flip-left">
-    <div class="memory-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-    <h3 class="font-sans-modern" style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem;"></h3>
-    <p class="detail-text" style="margin: 15px 0;">Aiutateci a catturare ogni istante. Caricate qui le foto e i video scattati durante la giornata!</p>
+            
+            <!-- NUOVO BOX FOTOGRAFO -->
+            <div class="memory-box" data-aos="flip-right" style="margin-bottom: 40px;">
+                <div class="memory-icon"><i class="fas fa-camera"></i></div>
+                <h3 class="font-sans-modern" style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem;">Direttamente dal fotografo</h3>
+                <p class="subtitle" style="margin-bottom: 15px; color: var(--text-dark); font-weight: bold; letter-spacing: 2px; margin-top: 10px;">Guido Gerretti Foto</p>
+                <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                    <!-- QR CODE Generato in automatico tramite API per il link fornito -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://guidogerrettifotografo.pixieset.com/giuseppemaria/" alt="QR Code Fotografo" style="border: 1px solid #eee; padding: 10px; background: white; border-radius: 5px;">
+                </div>
+                <a href="https://guidogerrettifotografo.pixieset.com/giuseppemaria/" target="_blank" style="color: var(--text-dark); font-weight: bold; text-decoration: underline; font-size: 0.95rem; word-break: break-all; max-width: 90%; display: inline-block;">
+                    https://guidogerrettifotografo.pixieset.com/giuseppemaria/
+                </a>
+            </div>
 
-    <div id="drive-gallery" class="carousel-wrapper" style="margin-bottom: 25px; display: none; min-height: 150px; align-items: center; justify-content: center;">
-        <p id="gallery-loading" style="font-size: 0.9rem; color: var(--text-light); font-style: italic;">Caricamento dei ricordi in corso...</p>
-    </div>
+            <!-- BOX OSPITI PREESISTENTE -->
+            <div class="memory-box" data-aos="flip-left">
+                <div class="memory-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <h3 class="font-sans-modern" style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem;"></h3>
+                <p class="detail-text" style="margin: 15px 0;">Aiutateci a catturare ogni istante. Caricate qui le foto e i video scattati durante la giornata!</p>
 
-    <div style="margin-top: -15px; margin-bottom: 25px; text-align: center;">
-        <a href="https://drive.google.com/drive/folders/185TVe5fdg01paP2KogSySEEdAg9CaI1X?usp=sharing" 
-           target="_blank" 
-           style="font-size: 0.8rem; color: var(--text-light); text-decoration: none; border-bottom: 1px dashed var(--bg-intro); padding-bottom: 2px; transition: all 0.3s ease; letter-spacing: 0.5px;"
-           onmouseover="this.style.color='var(--bg-intro)'; this.style.borderBottomStyle='solid';" 
-           onmouseout="this.style.color='var(--text-light)'; this.style.borderBottomStyle='dashed';">
-            <i class="fab fa-google-drive" style="margin-right: 5px; font-size: 0.85rem;"></i> Sfoglia la cartella Drive completa
-        </a>
-    </div>
+                <div id="drive-gallery" class="carousel-wrapper" style="margin-bottom: 25px; display: none; min-height: 150px; align-items: center; justify-content: center;">
+                    <p id="gallery-loading" style="font-size: 0.9rem; color: var(--text-light); font-style: italic;">Caricamento dei ricordi in corso...</p>
+                </div>
 
-    <p class="font-sans-modern" style="font-size: 0.8rem; color: #849caf;">Clicca il tasto sotto per aggiungere le tue foto</p>
-    <input type="file" id="file-uploader" multiple accept="image/*,video/*" style="display: none;">
-    <button id="custom-upload-btn" class="upload-btn" style="border: none; cursor: pointer; font-family: inherit; font-size: 1rem;">SELEZIONA FOTO</button>
-    <p id="upload-status" style="font-size: 0.9rem; color: var(--whatsapp); margin-top: 15px; font-weight: bold; display: none;"></p>
-</div>
+                <div style="margin-top: -15px; margin-bottom: 25px; text-align: center;">
+                    <a href="https://drive.google.com/drive/folders/185TVe5fdg01paP2KogSySEEdAg9CaI1X?usp=sharing" 
+                       target="_blank" 
+                       style="font-size: 0.8rem; color: var(--text-light); text-decoration: none; border-bottom: 1px dashed var(--bg-intro); padding-bottom: 2px; transition: all 0.3s ease; letter-spacing: 0.5px;"
+                       onmouseover="this.style.color='var(--bg-intro)'; this.style.borderBottomStyle='solid';" 
+                       onmouseout="this.style.color='var(--text-light)'; this.style.borderBottomStyle='dashed';">
+                        <i class="fab fa-google-drive" style="margin-right: 5px; font-size: 0.85rem;"></i> Sfoglia la cartella Drive completa
+                    </a>
+                </div>
+
+                <p class="font-sans-modern" style="font-size: 0.8rem; color: #849caf;">Clicca il tasto sotto per aggiungere le tue foto</p>
+                <input type="file" id="file-uploader" multiple accept="image/*,video/*" style="display: none;">
+                <button id="custom-upload-btn" class="upload-btn" style="border: none; cursor: pointer; font-family: inherit; font-size: 1rem;">SELEZIONA FOTO</button>
+                <p id="upload-status" style="font-size: 0.9rem; color: var(--whatsapp); margin-top: 15px; font-weight: bold; display: none;"></p>
+            </div>
         </section>
+        <!-- FINE SEZIONE RICORDI -->
 
         <div class="section-divider"><i class="fas fa-envelope-open-text"></i></div>
 
@@ -757,6 +771,14 @@
                   <div class="carousel-item">
                     <img src="ultimi_preparativi.jpeg" alt="Momento 9" class="carousel-img" onerror="this.src='https://via.placeholder.com/300x200?text=Oggi'">
                     <div class="carousel-caption"><b>Ultimi preparativi</b> Manca un mese e mancano gli ultimi preparativi</div>
+                </div>
+                  <div class="carousel-item">
+                    <img src="il_grande_giorno.jpg" alt="Momento 10" class="carousel-img" onerror="this.src='https://via.placeholder.com/300x200?text=Oggi'">
+                    <div class="carousel-caption"><b>Il grande giorno</b> Finalmente ci siamo! Un po di emozione, tanto caldo, ma momenti che rimarranno per sempre nei nostri cuori</div>
+                </div>
+                 <div class="carousel-item">
+                    <img src="il_viaggio_di_nozze.jpg" alt="Momento 11" class="carousel-img" onerror="this.src='https://via.placeholder.com/300x200?text=Oggi'">
+                    <div class="carousel-caption"><b>Il viaggio di nozze</b> Giappone stiamo arrivando!</div>
                 </div>
                             </div>
         </section>
